@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="From Markdown to a live site"><defs><marker id="a-slate" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#475569"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#2563eb"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" markerUnits="strokeWidth" orient="auto-start-reverse"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#16a34a"/></marker></defs>
+<rect x="0.75" y="0.75" width="958.5" height="438.5" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="32" y="46" font-size="21" fill="#0f172a" font-weight="700">From Markdown to a live site</text>
+<text x="40" y="82" font-size="12" fill="#64748b" font-weight="700" letter-spacing="1.5">INPUTS</text>
+<text x="300" y="82" font-size="12" fill="#64748b" font-weight="700" letter-spacing="1.5">BUILDER</text>
+<text x="660" y="82" font-size="12" fill="#64748b" font-weight="700" letter-spacing="1.5">OUTPUT</text>
+
+<rect x="40" y="96" width="200" height="72" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="56" y="124" font-size="15" fill="#ea580c" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">content/</text>
+<text x="56" y="146" font-size="12" fill="#64748b">series, blogs, images, PDFs</text>
+<rect x="40" y="184" width="200" height="72" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="56" y="212" font-size="15" fill="#7c3aed" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">theme/</text>
+<text x="56" y="234" font-size="12" fill="#64748b">layout.mjs · style.css · main.js</text>
+<rect x="40" y="272" width="200" height="72" rx="12" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+<text x="56" y="300" font-size="15" fill="#475569" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">site.config.json</text>
+<text x="56" y="322" font-size="12" fill="#64748b">title · author · url · social</text>
+
+<path d="M244,132 L294,170" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a-slate)"/>
+<path d="M244,220 L294,220" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a-slate)"/>
+<path d="M244,308 L294,270" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a-slate)"/>
+
+<rect x="300" y="96" width="300" height="248" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+<path d="M301.25,140 V109.25 Q301.25,97.25 313.25,97.25 H586.75 Q598.75,97.25 598.75,109.25 V140 Z" fill="#eff6ff"/>
+<text x="318" y="125" font-size="15" fill="#2563eb" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">scripts/build.mjs</text>
+<g font-size="13" fill="#0f172a">
+<circle cx="330" cy="166" r="11" fill="#2563eb"/><text x="330" y="170.5" font-size="11.5" fill="#fff" font-weight="700" text-anchor="middle">1</text><text x="350" y="170.5">Load series &amp; blogs <tspan fill="#64748b">(gray-matter)</tspan></text>
+<circle cx="330" cy="200" r="11" fill="#2563eb"/><text x="330" y="204.5" font-size="11.5" fill="#fff" font-weight="700" text-anchor="middle">2</text><text x="350" y="204.5">Render Markdown <tspan fill="#64748b">(marked)</tspan></text>
+<circle cx="330" cy="234" r="11" fill="#2563eb"/><text x="330" y="238.5" font-size="11.5" fill="#fff" font-weight="700" text-anchor="middle">3</text><text x="350" y="238.5">Fill page templates <tspan fill="#64748b">(layout.mjs)</tspan></text>
+<circle cx="330" cy="268" r="11" fill="#2563eb"/><text x="330" y="272.5" font-size="11.5" fill="#fff" font-weight="700" text-anchor="middle">4</text><text x="350" y="272.5">Make every link relative</text>
+<circle cx="330" cy="302" r="11" fill="#2563eb"/><text x="330" y="306.5" font-size="11.5" fill="#fff" font-weight="700" text-anchor="middle">5</text><text x="350" y="306.5">Search index, RSS, sitemap</text>
+</g>
+
+<path d="M604,220 L654,220" stroke="#16a34a" stroke-width="2.5" fill="none" marker-end="url(#a-green)"/>
+
+<rect x="660" y="96" width="260" height="248" rx="14" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+<path d="M661.25,140 V109.25 Q661.25,97.25 673.25,97.25 H906.75 Q918.75,97.25 918.75,109.25 V140 Z" fill="#f0fdf4"/>
+<text x="678" y="125" font-size="15" fill="#16a34a" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">dist/</text>
+<text x="748" y="125" font-size="12" fill="#64748b">plain static files</text>
+<g font-size="12.5" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+<text x="680" y="166">index.html</text><text x="800" y="166">404.html</text>
+<text x="680" y="192">series/</text><text x="800" y="192">blogs/</text>
+<text x="680" y="218">&lt;series&gt;/&lt;blog&gt;/</text>
+<text x="680" y="244">assets/</text><text x="800" y="244">search.json</text>
+<text x="680" y="270">feed.xml</text><text x="800" y="270">sitemap.xml</text>
+<text x="680" y="296">.nojekyll</text>
+</g>
+<text x="680" y="326" font-size="11.5" fill="#64748b">no server code, no database</text>
+
+<path d="M740,350 Q740,384 700,388" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a-slate)"/>
+<path d="M840,350 Q840,384 870,390" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a-slate)"/>
+<rect x="420" y="372" width="270" height="36" rx="18" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="555" y="395" font-size="13" fill="#0f172a" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">npm run dev → localhost:4000</text>
+<rect x="760" y="396" width="180" height="36" rx="18" fill="#16a34a"/>
+<text x="850" y="419" font-size="13" fill="#ffffff" font-weight="700" text-anchor="middle">GitHub Pages</text>
+</svg>

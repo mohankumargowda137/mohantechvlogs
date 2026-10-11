@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Content hierarchy: site, series, sections and blogs">
+<rect x="0.75" y="0.75" width="958.5" height="468.5" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="32" y="46" font-size="21" fill="#0f172a" font-weight="700">The content hierarchy</text>
+<g stroke="#94a3b8" stroke-width="2" fill="none">
+<path d="M480,130 V150 H260 V172"/><path d="M480,150 H700 V172"/>
+<path d="M260,232 V252 H155 V272"/><path d="M260,252 H365 V272"/>
+<path d="M155,322 V340 H100 V356"/><path d="M155,340 H215 V356"/><path d="M365,322 V356"/>
+<path d="M700,232 V300 H640 V356"/><path d="M700,300 H765 V356"/>
+</g>
+<rect x="380" y="72" width="200" height="58" rx="12" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+<text x="480" y="97" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">Site</text>
+<text x="480" y="117" font-size="12" fill="#64748b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">site.config.json</text>
+
+<rect x="120" y="172" width="280" height="60" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+<text x="260" y="198" font-size="16" fill="#2563eb" font-weight="700" text-anchor="middle">Series</text>
+<text x="260" y="219" font-size="12" fill="#64748b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">content/&lt;series&gt;/index.md</text>
+<rect x="560" y="172" width="280" height="60" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+<text x="700" y="198" font-size="16" fill="#ea580c" font-weight="700" text-anchor="middle">Standalone blogs</text>
+<text x="700" y="219" font-size="12" fill="#64748b" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">content/blogs/</text>
+
+<rect x="60" y="272" width="190" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="155" y="294" font-size="13.5" fill="#7c3aed" font-weight="700" text-anchor="middle">Section: Basics</text>
+<text x="155" y="311" font-size="11" fill="#64748b" text-anchor="middle">optional group</text>
+<rect x="270" y="272" width="190" height="50" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="365" y="294" font-size="13.5" fill="#7c3aed" font-weight="700" text-anchor="middle">Section: Advanced</text>
+<text x="365" y="311" font-size="11" fill="#64748b" text-anchor="middle">optional group</text>
+<text x="712" y="270" font-size="11.5" fill="#64748b">no sections,</text>
+<text x="712" y="286" font-size="11.5" fill="#64748b">newest first</text>
+
+<rect x="45" y="356" width="110" height="38" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="100" y="380" font-size="12.5" fill="#0f172a" font-weight="600" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">01-intro</text>
+<rect x="160" y="356" width="110" height="38" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="215" y="380" font-size="12.5" fill="#0f172a" font-weight="600" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">02-setup</text>
+<rect x="300" y="356" width="130" height="38" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="365" y="380" font-size="12.5" fill="#0f172a" font-weight="600" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">03-deep-dive</text>
+<rect x="580" y="356" width="120" height="38" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="640" y="380" font-size="12.5" fill="#0f172a" font-weight="600" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">ssh-keys</text>
+<rect x="705" y="356" width="120" height="38" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="765" y="380" font-size="12.5" fill="#0f172a" font-weight="600" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">hello-world</text>
+
+<text x="250" y="420" font-size="11.5" fill="#64748b" text-anchor="middle">numbers continue across sections: 01, 02, 03…</text>
+<rect x="32" y="432" width="896" height="1" fill="#e2e8f0"/>
+<rect x="40" y="444" width="14" height="14" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="62" y="456" font-size="12.5" fill="#0f172a">Every green box is the same thing, a <tspan font-weight="700">blog</tspan>: a folder with <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">index.md</tspan> + <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">assets/</tspan> + <tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">references/</tspan></text>
+</svg>
