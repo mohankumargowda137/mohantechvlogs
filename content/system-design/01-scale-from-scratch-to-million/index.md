@@ -4,7 +4,6 @@ subtitle: "From one server to a million users, one step at a time"
 date: 2026-10-11
 thumbnail: assets/cover.jpg
 tags: [system-design, scalability]
-draft: true                   # remove when ready to publish
 references: []
 ---
 
