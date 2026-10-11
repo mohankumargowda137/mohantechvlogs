@@ -266,6 +266,10 @@ img { max-width: 100%; height: auto; }
 .reader-post .post-head { margin-top: 8px; }
 /* Series pages: let the sidebar run down to the footer instead of stopping above it. */
 body:has(.reader-nav) .site-footer { margin-top: 0; }
+/* The footer sits in the content columns only; the sidebar spans down beside it. */
+.reader-layout:has(> .reader-footer) { row-gap: 0; }
+.reader-layout > .reader-nav { grid-row: 1 / span 2; }
+.reader-footer { grid-column: 2 / -1; }
 body:has(.reader-nav) .reader-post { padding-bottom: 64px; }
 .reader-toc { position: sticky; top: var(--header-h); padding-top: 28px; }
 .reader-toc .sidebar { position: static; margin-top: 0; max-height: calc(100vh - 100px); }
@@ -287,6 +291,7 @@ body:has(.reader-nav) .reader-post { padding-bottom: 64px; }
   .reader-nav.open { transform: none; }
   .reader-nav-inner { padding: 20px 16px 40px; }
   .reader-main { padding-top: 12px; }
+  .reader-footer { grid-column: 1 / -1; }
 }
 
 /* ===================== Responsive refinements ===================== */

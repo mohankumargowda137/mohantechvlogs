@@ -11,7 +11,13 @@ const fmtDate = (d) =>
 
 const isoDate = (d) => (d ? d.toISOString().slice(0, 10) : '');
 
-function shell({ site, title, description = site.description, image, body, bodyClass = '', canonical }) {
+const siteFooter = (site, cls = 'site-footer', inner = 'wrap-wide') => `
+  <footer class="${cls}">
+    <div class="${inner}">© ${new Date().getFullYear()} ${esc(site.author ?? site.title)}</div>
+  </footer>`;
+
+// `footer: false` when the body renders its own (series pages keep it beside the sidebar).
+function shell({ site, title, description = site.description, image, body, bodyClass = '', canonical, footer = true }) {
   const fullTitle = title ? `${title} · ${site.title}` : site.title;
   const ogImage = image && !/^https?:/.test(image) ? `${site.url}${image.slice(site.basePath.length)}` : image;
   return `<!doctype html>
@@ -79,9 +85,7 @@ ${body}
       <div class="search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>
     </div>
   </div>
-  <footer class="site-footer">
-    <div class="wrap-wide">© ${new Date().getFullYear()} ${esc(site.author ?? site.title)}</div>
-  </footer>
+${footer ? siteFooter(site) : ''}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
   <script src="${site.link('assets/main.js')}" defer></script>
 </body>
@@ -246,19 +250,21 @@ function seriesReader({ site, series, blog, prev, next, landing = false }) {
     image: blog?.thumbnail ?? series.thumbnail,
     canonical: landing && blog ? site.absolute(`${series.slug}/${blog.slug}/`) : undefined,
     bodyClass: 'reader',
+    footer: false,
     body: readerFrame({
       barTitle: series.title,
       barMeta: blog ? `${blog.number} / ${total}` : '',
       sidebar,
       article,
       toc: blog ? tocNav(blog) : '',
+      footer: siteFooter(site, 'site-footer reader-footer', ''),
     }),
   });
 }
 
 // Three-column reading layout: navigation drawer | article | outline.
 // Without a `sidebar` (standalone blogs) there's no series drawer: the blog is centered.
-function readerFrame({ barTitle, barMeta, sidebar, article, toc }) {
+function readerFrame({ barTitle, barMeta, sidebar, article, toc, footer = '' }) {
   if (!sidebar) {
     return `
     <div class="reader-layout no-nav wrap-wide${toc ? '' : ' no-toc'}">
@@ -278,6 +284,7 @@ function readerFrame({ barTitle, barMeta, sidebar, article, toc }) {
       ${sidebar}
       <div class="reader-main">${article}</div>
       ${toc ? `<div class="reader-toc"><div class="sidebar">${toc}</div></div>` : ''}
+      ${footer}
     </div>
     <div class="nav-backdrop" hidden></div>`;
 }
@@ -300,6 +307,7 @@ export function blogPage({ site, series, blog, prev, next }) {
     description: blog.subtitle,
     image: blog.thumbnail,
     bodyClass: 'reader',
+    footer: false,
     body: readerFrame({
       article: `
       <article class="post reader-post">
