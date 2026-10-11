@@ -1,0 +1,20 @@
+{
+  "name": "mohantechvlogs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Markdown-driven blog for GitHub Pages, organized by series",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "new:series": "node scripts/new.mjs series",
+    "new:blog": "node scripts/new.mjs blog"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.1.0"
+  }
+}

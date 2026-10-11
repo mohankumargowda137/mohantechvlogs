@@ -1,0 +1,141 @@
+# Git Cheat Sheet: Git for Developers, Basics to Advanced
+# https://mohankumargowda137.github.io/mohantechvlogs/git-for-developers/
+
+## SETUP (ch. 3)
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global push.autoSetupRemote true
+git config --global fetch.prune true
+git config --global merge.conflictStyle zdiff3
+git config --global rerere.enabled true
+git config --global push.followTags true
+git config --list --show-origin            # where each setting comes from
+
+## START (ch. 4, 13)
+git init                                   # new repo in current folder
+git clone <url> [folder]                   # copy a repo with full history
+
+## EVERYDAY LOOP (ch. 4-7)
+git status -sb                             # short status
+git add <file> | git add .                 # stage
+git add -p                                 # stage hunk by hunk (ch. 6)
+git restore --staged <file>                # unstage (keep edits)
+git restore <file>                         # DISCARD edits
+git commit -m "Subject"                    # commit staged changes
+git commit -am "Subject"                   # stage tracked files + commit
+git rm --cached <file>                     # stop tracking, keep on disk
+git commit --amend [--no-edit]             # fix the last (unpushed) commit
+git check-ignore -v <file>                 # why is this ignored? (ch. 7)
+
+## HISTORY (ch. 8-9)
+git log --oneline --graph --all
+git log main..feature                      # on feature, not on main
+git log -S "text"                          # when was "text" added/removed?
+git log -L :funcName:file.js               # history of one function
+git log --follow -- <file>                 # history across renames
+git diff                                   # unstaged changes
+git diff --staged                          # what you're about to commit
+git show <commit>[:path]                   # a commit, or a file at that commit
+git blame -w -C -C -C <file>               # who/why, ignoring whitespace & moves
+
+## BRANCHES (ch. 10)
+git branch -vv                             # local branches + tracking
+git switch -c <new-branch>                 # create + switch
+git switch <branch> | git switch -         # switch / previous branch
+git branch -m <old> <new>                  # rename
+git branch -d <branch> | -D                # delete (safe / force)
+git branch --merged main                   # safe-to-delete branches
+
+## MERGING (ch. 11-12)
+git merge <branch>                         # merge into current branch
+git merge --no-ff | --ff-only | --squash
+git merge --abort
+git checkout --ours|--theirs <file>        # take one side of a conflict
+git add <file> && git commit               # finish after resolving
+
+## REMOTES (ch. 13-16)
+git remote -v
+git remote add upstream <url>
+git fetch                                  # download only, always safe
+git pull                                   # fetch + merge/rebase
+git push                                   # push current branch
+git push --force-with-lease --force-if-includes   # safe force push (own branches only)
+git push origin --delete <branch>
+gh pr checkout <number>                    # check out a PR (GitHub CLI)
+
+## UNDO (ch. 17)
+git reset --soft HEAD~1                    # undo commit, keep staged
+git reset HEAD~1                           # undo commit, keep unstaged
+git reset --hard HEAD~1                    # undo commit, DISCARD changes
+git revert <commit>                        # new commit that undoes (pushed)
+git revert -m 1 <merge-commit>             # undo a merge
+git restore --source=<commit> -- <file>    # file from any commit/branch
+git clean -n | git clean -fd               # preview / delete untracked files
+
+## REBASE (ch. 18-19)
+git rebase main                            # replay my commits on main
+git rebase -i main                         # pick / reword / squash / fixup / drop / edit
+git commit --fixup <commit>                # mark a fix for an earlier commit
+git rebase -i --autosquash main            # fold fixups in
+git rebase --onto <new> <old> <branch>     # transplant commits
+git rebase --continue | --skip | --abort
+git rebase -i main --exec "npm test"       # test every commit
+
+## STASH & CHERRY-PICK (ch. 20-21)
+git stash push -u -m "message"             # stash incl. untracked
+git stash list | git stash show -p stash@{0}
+git stash pop | git stash apply stash@{n}
+git stash branch <new-branch>
+git cherry-pick -x <commit>                # copy commit, note origin
+git cherry-pick A^..B                      # copy a range
+
+## RECOVERY (ch. 22)
+git reflog                                 # everywhere HEAD has been
+git reset --hard HEAD@{n}                  # go back there
+git reset --hard ORIG_HEAD                 # undo last rebase/merge/reset
+git branch <name> <hash>                   # restore a deleted branch
+
+## INTERNALS (ch. 23)
+git cat-file -p <object>                   # inspect commit/tree/blob
+git rev-parse --abbrev-ref HEAD            # current branch (scripts)
+git rev-parse --short HEAD                 # short hash (scripts)
+
+## BISECT (ch. 24)
+git bisect start <bad> <good>
+git bisect good | bad | skip
+git bisect run <script>                    # 0 good, 1-127 bad, 125 skip
+git bisect reset
+
+## WORKTREES (ch. 25)
+git worktree add ../dir -b <new-branch> main
+git worktree add ../dir <existing-branch>
+git worktree list | git worktree remove ../dir
+
+## TAGS & SIGNING (ch. 26)
+git tag -a v1.2.0 -m "Release 1.2.0"
+git push --follow-tags
+git describe --tags
+git tag --contains <commit>
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
+
+## HOOKS (ch. 27)
+git config core.hooksPath .githooks
+git commit --no-verify                     # skip hooks once
+
+## BIG REPOS (ch. 28)
+git clone --depth 1 <url>                  # shallow (CI)
+git clone --filter=blob:none <url>         # partial (devs on big repos)
+git sparse-checkout set <dir> <dir>
+git lfs track "*.psd"
+git submodule update --init --recursive
+git maintenance start
+
+## REVISIONS (ch. 29)
+HEAD~3    3 commits back            HEAD^2   merge's 2nd parent
+@{u}      upstream branch           @{-1}    previous branch
+A..B      in B, not A               A...B    in either, not both
+:/text    latest commit matching    main@{yesterday}  reflog by time
