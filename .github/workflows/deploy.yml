@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      branches:
+        description: "Branches whose content/ changes go live on top of main (space or comma separated, e.g. series/system-design)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -19,6 +24,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history, needed to find where each branch split off main
+
+      # Manual runs only: copy in the content files each listed branch added or changed since it
+      # split off main. Theme/script changes on those branches are ignored, and main is never modified.
+      - name: Overlay content from branches
+        if: github.event_name == 'workflow_dispatch' && inputs.branches != ''
+        env:
+          BRANCHES: ${{ inputs.branches }}
+        run: |
+          for b in ${BRANCHES//,/ }; do
+            git check-ref-format --branch "$b" > /dev/null || { echo "::error::Invalid branch name: $b"; exit 1; }
+            git rev-parse --verify --quiet "origin/$b" > /dev/null || { echo "::error::Branch not found: $b"; exit 1; }
+            base=$(git merge-base HEAD "origin/$b")
+            files=$(git diff --name-only --diff-filter=d "$base" "origin/$b" -- content/)
+            if [ -z "$files" ]; then echo "$b: no content changes"; continue; fi
+            echo "$b:"; echo "$files" | sed 's/^/  /'
+            echo "$files" | xargs git checkout "origin/$b" --
+          done
 
       - uses: actions/setup-node@v4
         with:

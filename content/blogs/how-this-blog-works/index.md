@@ -138,7 +138,7 @@ sections:
       # …
 ---
 
-Intro text for the series (Markdown), shown under "About this series".
+Intro text for the series (Markdown). It is not shown on the page, but search uses it.
 ```
 
 A few rules make this predictable:
@@ -287,7 +287,7 @@ needs a framework.
 | --- | --- | --- |
 | **Home** `/` | `homePage` | A two-column split: series on the wide left, standalone blogs on the right. Three cards each, with "View all" links |
 | **All series** `/series/` | `seriesIndexPage` | A grid of series cards. A filter box appears once there are more than three |
-| **Series** `/<series>/` | `seriesPage` | Opens directly on blog 1, with a collapsible "About this series" box on top |
+| **Series** `/<series>/` | `seriesPage` | Opens directly on blog 1 |
 | **Blog in a series** | `blogPage` → `seriesReader` | The three-column reader (below) |
 | **All blogs** `/blogs/` | `blogsIndexPage` | A grid of blog tiles, newest first |
 | **Standalone blog** | `blogPage` | Centred article with the outline on the right, no series sidebar |
@@ -421,7 +421,8 @@ The workflow lives in `.github/workflows/deploy.yml` and has two jobs.
 
 | Step | Why |
 | --- | --- |
-| `actions/checkout@v4` | Gets the repository |
+| `actions/checkout@v4` (`fetch-depth: 0`) | Gets the repository with full history, so other branches can be compared against `main` |
+| *Overlay content from branches* | Manual runs only: copies in content from the branches you name (see below) |
 | `actions/setup-node@v4` (Node 22, npm cache) | Installs Node; the cache makes repeat installs fast |
 | `actions/configure-pages@v5` | Asks GitHub where the site will live and outputs `base_path` and `base_url` |
 | `npm ci` | Installs exactly the versions in `package-lock.json` |
@@ -435,7 +436,7 @@ job's URL appears on the workflow run, so you can click straight through to the 
 A few details worth knowing:
 
 - **Triggers:** every push to `main`, plus `workflow_dispatch`, which adds a *Run workflow*
-  button in the Actions tab for redeploying by hand.
+  button in the Actions tab for redeploying by hand, optionally with extra branches.
 - **Least-privilege permissions:** `contents: read` to check out, `pages: write` and
   `id-token: write` to deploy. The workflow can't push to the repository.
 - **`concurrency: pages` with `cancel-in-progress: false`:** two quick pushes deploy one after
@@ -445,6 +446,25 @@ A few details worth knowing:
 
 **One-time setup:** in the repository, open **Settings → Pages → Build and deployment** and set
 **Source** to **GitHub Actions**. After that, there's nothing to configure.
+
+### Publishing a series before it's merged
+
+I write a series on its own branch and merge it in one go when it's complete. Readers shouldn't
+have to wait for that, so the *Run workflow* form has a **branches** box. Keep "Use workflow from"
+on `main`, enter a branch such as `series/system-design`, and run it.
+
+For each branch, the overlay step finds where the branch split off `main`, lists the files under
+`content/` that the branch added or changed since then, and checks out just those files on top of
+`main`. Then the normal build runs.
+
+- **Only content comes across.** Theme and script changes on the branch are ignored, so an
+  unfinished design experiment can't leak onto the live site.
+- **`main` is never modified.** The overlay happens inside the CI workspace and is thrown away.
+- **Drafts still apply.** Blogs marked `draft: true` on the branch stay hidden.
+- **Bad input fails safely.** An invalid or unknown branch name stops the run before anything
+  is deployed, so the live site stays as it was.
+- **It lasts until the next deploy.** A push to `main` rebuilds from `main` alone, so run the
+  workflow again with the branch after merging anything else.
 
 ## Hands-on lab: add a blog and a series
 
@@ -635,6 +655,7 @@ cd .. && rm -rf blog-lab
   collapses on smaller screens, SVG covers and diagrams, and ⌘K search.
 - Every blog follows the same shape: intro, analogy, concepts, when to use, lab, mistakes, recap, quiz.
 - A push to `main` runs a two-job GitHub Actions workflow that builds `dist/` and deploys it to GitHub Pages.
+  A manual run can also publish content from unmerged series branches on top of `main`.
 
 ## Check your understanding
 
