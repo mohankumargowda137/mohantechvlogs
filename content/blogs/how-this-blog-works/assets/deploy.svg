@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Deployment with GitHub Actions and GitHub Pages"><defs><marker id="a-slate" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" markerUnits="strokeWidth" orient="auto"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#475569"/></marker></defs>
+<rect x="0.75" y="0.75" width="958.5" height="398.5" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="32" y="46" font-size="21" fill="#0f172a" font-weight="700">What happens after git push</text>
+
+<rect x="32" y="160" width="160" height="84" rx="12" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+<text x="112" y="194" font-size="15" fill="#0f172a" font-weight="700" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">git push</text>
+<text x="112" y="216" font-size="12" fill="#64748b" text-anchor="middle">to main (or run</text>
+<text x="112" y="232" font-size="12" fill="#64748b" text-anchor="middle">it by hand)</text>
+<path d="M196,202 L216,202" stroke="#475569" stroke-width="2" marker-end="url(#a-slate)"/>
+
+<rect x="222" y="74" width="326" height="296" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+<text x="238" y="100" font-size="15" fill="#2563eb" font-weight="700">Job 1 · build</text>
+<text x="532" y="100" font-size="11.5" fill="#64748b" text-anchor="end">ubuntu-latest</text>
+<rect x="238" y="112" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="132" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">checkout</text><text x="520" y="132" font-size="11" fill="#64748b" text-anchor="end">get the repo</text>
+<rect x="238" y="154" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="174" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">setup-node 22</text><text x="520" y="174" font-size="11" fill="#64748b" text-anchor="end">with npm cache</text>
+<rect x="238" y="196" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="216" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">configure-pages</text><text x="520" y="216" font-size="11" fill="#64748b" text-anchor="end">→ base_path, base_url</text>
+<rect x="238" y="238" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="258" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">npm ci</text><text x="520" y="258" font-size="11" fill="#64748b" text-anchor="end">exact lockfile</text>
+<rect x="238" y="280" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="300" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">npm run build</text><text x="520" y="300" font-size="11" fill="#64748b" text-anchor="end">BASE_PATH, SITE_URL</text>
+<rect x="238" y="322" width="294" height="32" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/><text x="250" y="342" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">upload-pages-artifact</text><text x="520" y="342" font-size="11" fill="#64748b" text-anchor="end">dist/</text>
+<path d="M552,222 L586,222" stroke="#475569" stroke-width="2" marker-end="url(#a-slate)"/>
+<text x="569" y="212" font-size="10.5" fill="#64748b" text-anchor="middle">needs</text>
+
+<rect x="592" y="160" width="170" height="124" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.5"/>
+<text x="608" y="186" font-size="15" fill="#7c3aed" font-weight="700">Job 2 · deploy</text>
+<text x="608" y="214" font-size="12.5" fill="#0f172a" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">deploy-pages</text>
+<text x="608" y="238" font-size="11.5" fill="#64748b">environment:</text>
+<text x="608" y="256" font-size="11.5" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">github-pages</text>
+<path d="M766,222 L790,222" stroke="#475569" stroke-width="2" marker-end="url(#a-slate)"/>
+
+<rect x="796" y="166" width="136" height="112" rx="14" fill="#16a34a"/>
+<text x="864" y="200" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">Live</text>
+<text x="864" y="226" font-size="11" fill="#dcfce7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">&lt;user&gt;.github.io</text>
+<text x="864" y="244" font-size="11" fill="#dcfce7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">/mohantechvlogs/</text>
+
+<text x="592" y="318" font-size="11.5" fill="#64748b">concurrency: pages: one deploy at a time,</text>
+<text x="592" y="334" font-size="11.5" fill="#64748b">a running deploy is never cancelled</text>
+</svg>

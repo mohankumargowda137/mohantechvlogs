@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="The series reader layout at three screen widths"><defs><marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" markerUnits="strokeWidth" orient="auto"><path d="M0,0.5 L10,5 L0,9.5 z" fill="#2563eb"/></marker></defs>
+<rect x="0.75" y="0.75" width="958.5" height="418.5" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="32" y="46" font-size="21" fill="#0f172a" font-weight="700">One reader, three layouts</text>
+
+<!-- desktop -->
+<rect x="32" y="78" width="320" height="250" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="32.75" y="78.75" width="318.5" height="22" rx="9" fill="#f1f5f9"/>
+<rect x="44" y="86" width="50" height="7" rx="3.5" fill="#475569"/><rect x="152" y="84" width="80" height="11" rx="5.5" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="40" y="108" width="74" height="212" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<rect x="46" y="114" width="62" height="34" rx="4" fill="#bfdbfe"/>
+<rect x="46" y="154" width="62" height="5" rx="2.5" fill="#2563eb"/>
+<rect x="46" y="168" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="180" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="192" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="204" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="216" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="228" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="240" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="252" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="46" y="264" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="122" y="108" width="160" height="212" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="130" y="116" width="120" height="10" rx="5" fill="#0f172a"/>
+<rect x="130" y="134" width="144" height="52" rx="4" fill="#e2e8f0"/>
+<rect x="130" y="196" width="130" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="208" width="116" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="220" width="144" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="232" width="130" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="244" width="116" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="256" width="144" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="268" width="130" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="280" width="116" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="130" y="292" width="144" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="290" y="108" width="54" height="120" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+<rect x="296" y="118" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="130" width="14" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="142" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="154" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="166" width="14" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="178" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="296" y="190" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<text x="77" y="314" font-size="10" fill="#2563eb" font-weight="700" text-anchor="middle">series nav</text>
+<text x="202" y="314" font-size="10" fill="#64748b" font-weight="700" text-anchor="middle">blog</text>
+<text x="317" y="222" font-size="10" fill="#7c3aed" font-weight="700" text-anchor="middle">outline</text>
+<text x="192" y="356" font-size="15" fill="#0f172a" font-weight="700" text-anchor="middle">Wider than 1280px</text>
+<text x="192" y="376" font-size="12.5" fill="#64748b" text-anchor="middle">nav · blog · "On this page"</text>
+
+<!-- laptop -->
+<rect x="380" y="78" width="270" height="250" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="380.75" y="78.75" width="268.5" height="22" rx="9" fill="#f1f5f9"/>
+<rect x="392" y="86" width="50" height="7" rx="3.5" fill="#475569"/><rect x="480" y="84" width="70" height="11" rx="5.5" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="388" y="108" width="74" height="212" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<rect x="394" y="114" width="62" height="34" rx="4" fill="#bfdbfe"/>
+<rect x="394" y="154" width="62" height="5" rx="2.5" fill="#2563eb"/>
+<rect x="394" y="168" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="180" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="192" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="204" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="216" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="228" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="240" width="42" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="252" width="28" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="394" y="264" width="56" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="470" y="108" width="172" height="212" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="478" y="116" width="120" height="10" rx="5" fill="#0f172a"/>
+<rect x="478" y="134" width="156" height="56" rx="4" fill="#e2e8f0"/>
+<rect x="478" y="200" width="142" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="212" width="128" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="224" width="156" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="236" width="142" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="248" width="128" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="260" width="156" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="272" width="142" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="284" width="128" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="478" y="296" width="156" height="5" rx="2.5" fill="#cbd5e1"/>
+<text x="515" y="356" font-size="15" fill="#0f172a" font-weight="700" text-anchor="middle">1000 – 1280px</text>
+<text x="515" y="376" font-size="12.5" fill="#64748b" text-anchor="middle">outline hides, nav stays</text>
+
+<!-- phone -->
+<rect x="700" y="78" width="130" height="250" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="700.75" y="78.75" width="128.5" height="22" rx="15" fill="#f1f5f9"/>
+<rect x="712" y="86" width="40" height="7" rx="3.5" fill="#475569"/>
+<rect x="701" y="101" width="128" height="18" fill="#eff6ff"/>
+<path d="M708,107 h10 M708,110 h10 M708,113 h7" stroke="#2563eb" stroke-width="1.5"/>
+<text x="724" y="114" font-size="9" fill="#2563eb" font-weight="700">Series title  3/30</text>
+<rect x="710" y="128" width="90" height="9" rx="4.5" fill="#0f172a"/>
+<rect x="710" y="144" width="110" height="40" rx="4" fill="#e2e8f0"/>
+<rect x="710" y="194" width="96" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="206" width="82" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="218" width="110" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="230" width="96" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="242" width="82" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="254" width="110" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="266" width="96" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="278" width="82" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="290" width="110" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="710" y="302" width="96" height="5" rx="2.5" fill="#cbd5e1"/>
+<rect x="701" y="101" width="128" height="226" fill="#0f172a" fill-opacity="0.35"/>
+<rect x="701" y="101" width="86" height="226" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<rect x="708" y="110" width="72" height="34" rx="4" fill="#bfdbfe"/>
+<rect x="708" y="156" width="64" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="168" width="52" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="180" width="40" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="192" width="64" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="204" width="52" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="216" width="40" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="228" width="64" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="240" width="52" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="252" width="40" height="5" rx="2.5" fill="#93c5fd"/><rect x="708" y="264" width="64" height="5" rx="2.5" fill="#93c5fd"/>
+<path d="M855,210 H795" stroke="#2563eb" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+<text x="860" y="206" font-size="11" fill="#2563eb" font-weight="700">drawer,</text>
+<text x="860" y="221" font-size="11" fill="#2563eb" font-weight="700">tap to open</text>
+<text x="815" y="356" font-size="15" fill="#0f172a" font-weight="700" text-anchor="middle">Under 1000px</text>
+<text x="815" y="376" font-size="12.5" fill="#64748b" text-anchor="middle">nav slides in from a</text>
+<text x="815" y="394" font-size="12.5" fill="#64748b" text-anchor="middle">"contents" bar</text>
+</svg>
