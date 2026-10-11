@@ -159,7 +159,7 @@ img { max-width: 100%; height: auto; }
 .intro h1 { margin: 0; font-size: clamp(2.2rem, 5.2vw, 4.6rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; max-width: 14em; }
 
 /* Home: series (wide, left) · standalone blogs (narrow, right) */
-.home-split { --split-gap: clamp(24px, 3vw, 56px); display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--split-gap); padding-top: clamp(24px, 3vw, 40px); padding-bottom: clamp(24px, 3vw, 40px); }
+.home-split { --split-gap: clamp(24px, 3vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) min(27%, 440px); gap: var(--split-gap); padding-top: clamp(24px, 3vw, 40px); padding-bottom: clamp(24px, 3vw, 40px); }
 .home-col { display: flex; flex-direction: column; gap: 16px; container-type: inline-size; }
 /* Divider sits in the middle of the gap. */
 .home-col + .home-col { border-left: 1px solid var(--border); padding-left: calc(var(--split-gap) / 2); margin-left: calc(var(--split-gap) / -2); }
@@ -167,42 +167,39 @@ img { max-width: 100%; height: auto; }
 .home-col-head .count { font-size: .8rem; font-weight: 600; color: var(--muted); background: var(--code-bg); padding: 2px 9px; border-radius: 99px; vertical-align: middle; letter-spacing: 0; }
 .home-col-foot { margin-top: auto; padding-top: 8px; align-self: center; font-weight: 600; font-size: .95rem; }
 
-/* Cards are rows: an uncropped 16:9 cover flush to the top, left and bottom edges, text beside it.
+/* Series cards are rows: an uncropped 16:9 cover flush to the top, left and bottom edges, text beside it.
    The cover sets the card's height; the text box (height: 0 + min-height: 100%) fills it,
    and is a size container so the summary shows only as many lines as fit (heights exclude padding). */
-.home-split :is(.series-card, .blog-card) { display: grid; grid-template-columns: var(--cover-w) minmax(0, 1fr); }
-.home-series { --cover-w: 44%; }
-.home-blogs { --cover-w: 46%; }
+.home-split .series-card { display: grid; grid-template-columns: var(--cover-w) minmax(0, 1fr); }
+.home-series { --cover-w: min(38%, 400px); }
+.home-split .sc-body { padding: 12px 16px; }
+.home-split .series-card h2 { font-size: 1.15rem; margin: 4px 0; }
+.home-split .sc-sub { font-size: .9rem; margin: 0 0 8px; }
 .home-split :is(.sc-cover, .tile-thumb) { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
-.home-split :is(.sc-body, .tile-body) { height: 0; min-height: 100%; overflow: hidden; container: card-text / size; }
-.home-split :is(.series-card h2, .blog-card h2, .sc-sub, .blog-card p) { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+.home-split .sc-body { height: 0; min-height: 100%; overflow: hidden; container: card-text / size; }
+.home-split :is(.series-card h2, .blog-card h2, .sc-sub) { display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
 .home-split :is(.series-card h2, .blog-card h2) { -webkit-line-clamp: 2; }
 .home-split .sc-sub { -webkit-line-clamp: 3; }
-.home-split .blog-card p { -webkit-line-clamp: 2; font-size: .9rem; margin: 0 0 4px; }
-.home-split :is(.sc-body, .tile-body) > * { flex-shrink: 0; }
+/* Blog cards: cover on top, then title, tags and the whole subtitle at their natural height. */
+.home-split .blog-card p { font-size: .85rem; line-height: 1.45; margin: 0 0 4px; }
+.home-split .sc-body > * { flex-shrink: 0; }
 .series-card .tags, .blog-card .tags { margin: 0 0 12px; gap: 6px; }
-.blog-card .tags { margin: 0 0 6px; }
+.blog-card .tags { margin: 2px 0 8px; }
 /* Home cards: one row of pills; extras are clipped rather than wrapped. */
 .home-split .tags { flex-wrap: nowrap; overflow: hidden; }
 .home-split .tags span { white-space: nowrap; }
 .home-split .sc-foot .meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.home-split .tile-body { display: flex; flex-direction: column; justify-content: center; padding: 12px 16px; }
-.home-split .blog-card h2 { font-size: 1rem; margin: 4px 0; }
-@container card-text (max-height: 228px) { .home-split .series-card .sc-sub { -webkit-line-clamp: 2; } }
-@container card-text (max-height: 203px) { .home-split .series-card .sc-sub { -webkit-line-clamp: 1; } }
-@container card-text (max-height: 178px) { .home-split .series-card .sc-sub { display: none; } }
-@container card-text (max-height: 150px) { .home-split .series-card .tags { display: none; } }
-@container card-text (max-height: 134px) { .home-split .blog-card .tile-body p { -webkit-line-clamp: 1; } }
-@container card-text (max-height: 111px) { .home-split .blog-card .tile-body p { display: none; } }
+.home-split .tile-body { padding: 10px 14px 12px; }
+.home-split .blog-card h2 { font-size: .95rem; margin: 2px 0 4px; }
+@container card-text (max-height: 205px) { .home-split .series-card .sc-sub { -webkit-line-clamp: 2; } }
+@container card-text (max-height: 183px) { .home-split .series-card .sc-sub { -webkit-line-clamp: 1; } }
+@container card-text (max-height: 161px) { .home-split .series-card .sc-sub { display: none; } }
+@container card-text (max-height: 140px) { .home-split .series-card .tags { display: none; } }
 
 /* Column too narrow for side-by-side: cover on top, full width, text below at its natural height. */
 @container (max-width: 620px) {
   .home-series .series-card { grid-template-columns: minmax(0, 1fr); }
   .home-series .sc-body { height: auto; min-height: 0; container-type: normal; }
-}
-@container (max-width: 400px) {
-  .home-blogs .blog-card { grid-template-columns: minmax(0, 1fr); }
-  .home-blogs .tile-body { height: auto; min-height: 0; container-type: normal; }
 }
 
 /* Filter bar */
@@ -267,13 +264,11 @@ img { max-width: 100%; height: auto; }
 .reader-main { min-width: 0; display: flex; justify-content: center; padding-top: 28px; }
 .reader-post { width: 100%; max-width: 860px; }
 .reader-post .post-head { margin-top: 8px; }
+/* Series pages: let the sidebar run down to the footer instead of stopping above it. */
+body:has(.reader-nav) .site-footer { margin-top: 0; }
+body:has(.reader-nav) .reader-post { padding-bottom: 64px; }
 .reader-toc { position: sticky; top: var(--header-h); padding-top: 28px; }
 .reader-toc .sidebar { position: static; margin-top: 0; max-height: calc(100vh - 100px); }
-.series-about { margin: 0 0 20px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); font-size: .95rem; }
-.series-about summary { cursor: pointer; font-weight: 600; }
-.series-about summary span { font-weight: 400; color: var(--muted); }
-.series-about .prose { margin-top: 8px; }
-.series-about .prose > :first-child { margin-top: 0; }
 .reader-bar { display: none; }
 .nav-backdrop { position: fixed; inset: 0; z-index: 30; background: rgb(0 0 0 / .4); }
 .nav-backdrop[hidden] { display: none; }
@@ -310,6 +305,8 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 1280px) { .reader-layout.no-nav { grid-template-columns: minmax(0, 1fr); } }
 .prose { font-size: clamp(1rem, .96rem + .18vw, 1.09rem); overflow-wrap: break-word; }
 .prose a { word-break: break-word; }
+/* Justified body text; hyphenation keeps word gaps even. */
+.prose p, .prose li { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 .toc a { display: block; padding: 3px 0; }
 
 /* Posts index */

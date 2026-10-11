@@ -232,11 +232,6 @@ function seriesReader({ site, series, blog, prev, next, landing = false }) {
   const article = blog
     ? `
       <article class="post reader-post">
-        ${landing && (series.html || series.subtitle) ? `
-        <details class="series-about">
-          <summary>About this series${series.subtitle ? ` — <span>${esc(series.subtitle)}</span>` : ''}</summary>
-          ${series.html ? `<div class="prose">${series.html}</div>` : ''}
-        </details>` : ''}
         ${blogHeader(blog, `${blog.section ? `${esc(blog.section)} · ` : ''}Blog ${blog.number} of ${total}`)}
         <div class="prose">${blog.html}</div>
         ${referencesSection(blog)}
@@ -372,8 +367,8 @@ function blogCard(site, b, priority) {
       <article class="blog-card">
         <a href="${href}" tabindex="-1" aria-hidden="true">${thumb(b.thumbnail, b.title, 'tile-thumb', priority)}</a>
         <div class="tile-body">
-          ${tagPills(b.tags)}
           <h2><a class="stretched" href="${href}">${esc(b.title)}</a>${draftBadge(b)}</h2>
+          ${tagPills(b.tags)}
           ${b.subtitle ? `<p>${esc(b.subtitle)}</p>` : ''}
           <div class="meta">${metaLine(b)}</div>
         </div>
