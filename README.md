@@ -56,7 +56,7 @@ blogs:                          # reading order — only listed folders are publ
   - folder: 02-pods
     thumbnail: 02-pods/assets/alt.png        # optional: relative to the series folder
 ---
-Intro text for the series page (Markdown).
+Intro text for the series (Markdown). Not shown on the page; search uses it.
 ```
 
 **Sections (optional).** To group the blogs, use `sections:` instead of (or after) `blogs:`.
@@ -122,6 +122,17 @@ npm run new:blog   -- kubernetes/03-services "Services" --section "Networking"
    `https://<user>.github.io/<repo>/`.
 
 The base path is detected automatically in CI, so a custom domain works without changes.
+
+### Publishing a series before it's merged
+
+To let readers see finished blogs from a series that still lives on its own branch:
+**Actions → Deploy to GitHub Pages → Run workflow**, keep "Use workflow from" on `main`, and enter
+the branch name(s), e.g. `series/system-design`. The site is built from `main` plus the content
+that branch added or changed. Blogs marked `draft: true` stay hidden as usual.
+
+This only lasts until the next deploy: a push to `main` rebuilds from `main` alone, so run the
+workflow again (with the branch) after merging anything else. Once the series is merged, plain
+`main` deploys include it.
 Edit `site.config.json` for the site title, description, author and links.
 
 ## Search
