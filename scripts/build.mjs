@@ -15,7 +15,7 @@ const DIST = process.env.OUT_DIR ? path.resolve(process.env.OUT_DIR) : path.join
 const WORDS_PER_MINUTE = 200;
 // Templates build internal URLs on this placeholder; write() turns it into a relative
 // prefix ("../../") per page so the site works from any host or folder.
-const ROOT_TOKEN = '/__site_root__';
+export const ROOT_TOKEN = '/__site_root__';
 // Standalone blogs live in content/blogs/ and publish at /blogs/<slug>/.
 const BLOGS_DIR = 'blogs';
 // The all-series index lives at /series/, so no series folder may use that name.
@@ -246,7 +246,7 @@ function loadBlog(series, ref, { includeDrafts, warn }) {
   };
 }
 
-function normalizeReferences(refs) {
+export function normalizeReferences(refs) {
   if (!Array.isArray(refs)) return [];
   return refs.map((r) => {
     if (typeof r === 'string') return { title: r, url: r };
@@ -257,7 +257,7 @@ function normalizeReferences(refs) {
 // ---------------------------------------------------------------------------
 // Markdown
 
-function renderMarkdown(src, { warn, where }) {
+export function renderMarkdown(src, { warn, where }) {
   const toc = [];
   const slugCounts = new Map();
   const marked = new Marked({ gfm: true });

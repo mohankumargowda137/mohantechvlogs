@@ -1,8 +1,10 @@
 // Local preview: builds (including drafts), serves dist/ and live-reloads on changes.
+// Also hosts the content editor at /__admin/ (dev only: the build never includes it).
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { handleAdmin, warmRichEditor } from './admin/server.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = process.env.OUT_DIR ? path.resolve(process.env.OUT_DIR) : path.join(ROOT, 'dist');
@@ -16,7 +18,9 @@ const MIME = {
   '.mp4': 'video/mp4', '.webm': 'video/webm', '.txt': 'text/plain; charset=utf-8',
 };
 
-const reloadScript = `<script>new EventSource('/__reload').onmessage = () => location.reload();</script>`;
+// Live reload, plus an "Edit" button that opens the current page in the editor.
+const reloadScript = `<script>new EventSource('/__reload').onmessage = () => location.reload();</script>
+  <script src="/__admin/edit-button.js" defer></script>`;
 const clients = new Set();
 
 // Served at "/" locally, so the 404 page uses an empty base path.
@@ -30,6 +34,7 @@ const rebuild = async () => {
   }
 };
 await rebuild();
+warmRichEditor();
 
 let timer;
 for (const target of [process.env.CONTENT_DIR ?? 'content', 'theme', 'scripts/build.mjs', 'site.config.json']) {
@@ -49,8 +54,9 @@ const send = (res, status, type, file) => {
 };
 
 http
-  .createServer((req, res) => {
+  .createServer(async (req, res) => {
     const urlPath = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+    if (await handleAdmin(req, res, urlPath)) return;
     if (urlPath === '/__reload') {
       res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });
       clients.add(res);
@@ -69,4 +75,4 @@ http
     }
     send(res, 200, MIME[path.extname(file).toLowerCase()] ?? 'application/octet-stream', file);
   })
-  .listen(PORT, () => console.log(`\n  Preview: http://localhost:${PORT}  (drafts shown, live reload on)\n`));
+  .listen(PORT, () => console.log(`\n  Preview: http://localhost:${PORT}  (drafts shown, live reload on)\n  Editor:  http://localhost:${PORT}/__admin/\n`));

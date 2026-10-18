@@ -10,4 +10,8 @@ tags: [system-design, architecture, scalability, distributed-systems, interviews
 #   npm run new:blog -- system-design/01-what-is-system-design "What Is System Design?" --section "Foundations"
 blogs:
   - folder: 01-scale-from-scratch-to-million
+  - folder: 02-estimating-for-system-design
+  - folder: 03-framework-for-system-design
+  - folder: 04-designing-rate-limiter
+  - folder: 05-design-consistent-hashing
 ---
