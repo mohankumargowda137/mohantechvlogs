@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Content Editor · dev</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css">
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="side" id="side">
+      <div class="side-head">
+        <a class="brand" href="#/"><span class="dot"></span>Content editor <span class="pill">dev</span></a>
+        <a class="btn sm exit" id="exit" data-exit href="/" title="Save and go back to this page on the site (Esc)">Exit editor</a>
+      </div>
+      <nav class="tree" id="tree" aria-label="Content"></nav>
+    </aside>
+    <main class="main" id="main"></main>
+  </div>
+
+  <dialog class="modal" id="modal">
+    <form method="dialog" class="modal-card" id="modal-form"></form>
+  </dialog>
+  <dialog class="switcher" id="switcher" aria-label="Go to blog or series">
+    <div class="switcher-card">
+      <input type="search" id="switcher-input" placeholder="Go to blog or series…" autocomplete="off" aria-label="Search blogs and series" aria-controls="switcher-list">
+      <ul class="switcher-list" id="switcher-list" role="listbox"></ul>
+      <div class="switcher-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>Esc</kbd> close</span></div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <template id="cheatsheet">
+    <div class="cheat">
+      <h3>Markdown cheatsheet</h3>
+      <p class="muted">Rendered by the same parser as the site (GitHub-flavoured Markdown), so the preview is what readers get.</p>
+      <table>
+        <tr><td><code>## Heading</code> / <code>### Sub</code></td><td>H2/H3 appear in “On this page”</td></tr>
+        <tr><td><code>**bold**</code> <code>*italic*</code> <code>~~strike~~</code></td><td>Emphasis</td></tr>
+        <tr><td><code>`inline code`</code></td><td>Code span</td></tr>
+        <tr><td><code>```js</code> … <code>```</code></td><td>Code block with highlighting</td></tr>
+        <tr><td><code>[text](https://…)</code></td><td>External link (opens in a new tab)</td></tr>
+        <tr><td><code>[Pods](../02-pods/index.md)</code></td><td>Link to another blog</td></tr>
+        <tr><td><code>![alt](assets/x.png)</code></td><td>Image</td></tr>
+        <tr><td><code>![alt](assets/x.png "Caption")</code></td><td>Image with caption (figure)</td></tr>
+        <tr><td><code>- item</code> / <code>1. item</code></td><td>Lists (Tab to nest)</td></tr>
+        <tr><td><code>- [ ] todo</code> / <code>- [x] done</code></td><td>Task list</td></tr>
+        <tr><td><code>&gt; quote</code></td><td>Blockquote / callout box</td></tr>
+        <tr><td><code>| a | b |</code><br><code>| --- | --- |</code></td><td>Table</td></tr>
+        <tr><td><code>---</code></td><td>Horizontal rule</td></tr>
+        <tr><td><code>&lt;details&gt;&lt;summary&gt;…</code></td><td>Raw HTML works too</td></tr>
+        <tr><td><code>https://example.com</code></td><td>Autolink</td></tr>
+        <tr><td><code>\*</code></td><td>Escape a character</td></tr>
+      </table>
+      <h4>Shortcuts</h4>
+      <p><kbd>⌘/Ctrl S</kbd> save · <kbd>⌘B</kbd> bold · <kbd>⌘I</kbd> italic · <kbd>⌘K</kbd> link · <kbd>⌘E</kbd> inline code ·
+        <kbd>Tab</kbd>/<kbd>⇧Tab</kbd> indent · <kbd>Enter</kbd> continues lists · paste or drop images to upload</p>
+    </div>
+  </template>
+</body>
+</html>
