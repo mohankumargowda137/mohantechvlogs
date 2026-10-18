@@ -114,6 +114,39 @@ npm run new:blog   -- kubernetes/01-why-kubernetes "Why Kubernetes?"   # inside 
 npm run new:blog   -- kubernetes/03-services "Services" --section "Networking"
 ```
 
+## Editor (dev only)
+
+`npm run dev` also serves a content editor at **http://localhost:4000/__admin/**, and every page of
+the dev site gets an **✎ Edit** button that opens it there. **Exit editor** (top left, or `Esc`) saves and
+takes you back to the page you were editing.
+
+- **Find anything**: press `⌘P` / `Ctrl P` (or `/`, or click *Go to blog or series…* on the home screen), even
+  while writing, and type part of a title, series or section. The **home screen** shows your last three opened items, every series and standalone blog
+  as a card (click one to open it), and stats; inside a blog or series the sidebar shows just that series.
+- **Create** standalone blogs, series, and blogs inside a series/section (same scaffolding as `npm run new:*`).
+- **Edit a blog** in three modes:
+  - **Write** (default): a visual, Hashnode-style editor ([Milkdown Crepe](https://milkdown.dev)). Add a
+    cover, title and subtitle at the top, then just write: type `/` for headings, lists, quotes, code
+    blocks, tables, images and dividers; select text for a formatting toolbar; Markdown shortcuts
+    (`## `, `- `, `**bold**`, `` ` ``) convert as you type. Paste or drop images to upload them to `assets/`.
+  - **Markdown**: the raw source, with a formatting toolbar.
+  - **Preview**: the page exactly as readers will see it (same renderer and theme as the build).
+
+  Date, tags, draft, cover path and references live under **⚙ Settings**. Changes **autosave** a few
+  seconds after you stop typing (and at least every 30 s while you type); `⌘S` saves right away.
+  The pill in the top bar shows *Unsaved changes*, *Saving…*, *Saved* (hover for the time) or
+  *Save failed* (hover for the reason; it retries on its own, or click it to retry now).
+  Opening a blog never changes it: the body is only rewritten once you edit it in Write mode (as
+  standard Markdown with `-` bullets), and images keep their alt text and captions.
+- **Edit a series**: details, sections (add, rename, reorder, delete), and blog order by drag and drop;
+  unlisted blog folders can be added back.
+
+Saving writes straight to `content/` (only the changed front matter fields are rewritten; untouched
+ones keep their formatting and comments), and the dev server rebuilds as usual. The editor lives in
+`scripts/admin/`, is mounted only by `scripts/dev.mjs`, never ends up in `dist/`, and only answers
+requests from this machine. The visual editor's packages are `devDependencies`, bundled on the fly
+with esbuild the first time you open the editor, so run `npm install` after pulling.
+
 ## Deploying
 
 1. Push this repo to GitHub.
