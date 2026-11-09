@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+<radialGradient id="glow" cx="0.85" cy="0.2" r="0.75"><stop offset="0" stop-color="#38bdf8" stop-opacity="0.26"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#111827"/></linearGradient>
+<pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#ffffff" opacity="0.06"/></pattern>
+</defs>
+<rect width="1280" height="720" fill="url(#bg)"/><rect width="1280" height="720" fill="url(#dots)"/><rect width="1280" height="720" fill="url(#glow)"/>
+<text x="1250" y="700" font-size="360" font-weight="800" fill="#38bdf8" opacity="0.07" text-anchor="end" letter-spacing="-12">16</text>
+<rect x="80" y="86" width="44" height="6" rx="3" fill="#38bdf8"/>
+<text x="80" y="134" font-size="22" font-weight="800" fill="#38bdf8" letter-spacing="4">PYTHON OOP</text>
+<text x="80" y="170" font-size="20" font-weight="600" fill="#94a3b8" letter-spacing="2">BLOG 16 · CLASS ATTRIBUTES</text>
+<text font-size="72" font-weight="800" fill="#f8fafc" letter-spacing="-1.5"><tspan x="80" y="319.7">Static</tspan><tspan x="80" y="400.3">Methods</tspan></text>
+
+<text x="80" y="652" font-size="20" font-weight="600" fill="#64748b">Mohan Tech Vlogs</text>
+<g transform="translate(720,270)"><rect x="0" y="0" width="480" height="180" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/><circle cx="28" cy="28" r="7" fill="#f87171"/><circle cx="50" cy="28" r="7" fill="#fbbf24"/><circle cx="72" cy="28" r="7" fill="#4ade80"/><g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" font-weight="600" fill="#e2e8f0"><text x="30" y="88" xml:space="preserve"><tspan fill="#38bdf8">@staticmethod</tspan></text><text x="30" y="124" xml:space="preserve"><tspan fill="#a78bfa">def</tspan> is_valid_power(power):</text><text x="30" y="160" xml:space="preserve">    <tspan fill="#a78bfa">return</tspan> power in VALID</text></g></g>
+</svg>
