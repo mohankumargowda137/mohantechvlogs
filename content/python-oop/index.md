@@ -5,7 +5,6 @@ thumbnail: thumbnail.svg
 order: 5
 date: 2026-11-09
 tags: [python, oop, classes, inheritance, beginner]
-draft: true                   # remove when ready to publish
 
 sections:
   - title: Classes and Objects
